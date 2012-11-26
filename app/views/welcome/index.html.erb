@@ -1,27 +1,22 @@
 <h1>Welcome to Harvard Hangouts!</h1>
-<%= link_to 'New hangout', new_hangout_path %>
-
-<table>
-  <tr>
-    <th>Username</th>
-	<th>Event</th>
-    <th>Location</th>
-	<th>Description</th>
-	<th>Start time</th>
-	<th>End time</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @hangouts.each do |hangout| %>
-  <tr>
-    <td><%= hangout.name %></td>
-    <td><%= hangout.event %></td>
-	<td><%= hangout.location %></td>
-	<td><%= hangout.description %></td>
-	<td><%= hangout.start_date_time %></td>
-	<td><%= hangout.end_date_time %></td>
- </tr>
+<div>
+  <b>Hanging out at:</b> <%= hangout.event %>
+  <br />  
+  <b>Name:</b> <%= hangout.name %>
+  <br />
+  <b>Location:</b> <%= hangout.location %>
+  <br />
+  <b>Description:</b> <%= hangout.description %>
+  <br />
+  <b>Start time:</b> <%= hangout.start_date_time %>
+  <br />
+  <b>End time:</b> 
+  <br />
+  <%= hangout.end_date_time %>
+</div>
+<hr/>
 <% end %>
-</table>
+
+<%= link_to 'New hangout', new_hangout_path %>
