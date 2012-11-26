@@ -17,3 +17,7 @@
 <hr/>
 <% end %>
 
+<% if user_signed_in? %>
+  <%= link_to 'New hangout', new_post_path %>
+<% end %>
+
