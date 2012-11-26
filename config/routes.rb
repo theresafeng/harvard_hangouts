@@ -1,4 +1,6 @@
 HarvardHangouts::Application.routes.draw do
+  resources :posts
+
   resources :hangouts
   root :to => 'welcome#index'
   

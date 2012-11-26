@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121124045950) do
+ActiveRecord::Schema.define(:version => 20121126014936) do
 
   create_table "hangouts", :force => true do |t|
     t.string   "name"
     t.string   "event"
     t.string   "location"
     t.text     "description"
+    t.datetime "start_date_time"
+    t.datetime "end_date_time"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "event"
+    t.text     "description"
+    t.string   "location"
     t.datetime "start_date_time"
     t.datetime "end_date_time"
     t.datetime "created_at",      :null => false

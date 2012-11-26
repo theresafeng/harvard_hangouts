@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @hangouts = Hangout.all
+    @posts = Post.all
   end
 end

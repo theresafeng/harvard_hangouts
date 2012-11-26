@@ -1,22 +1,20 @@
 <h1>Welcome to Harvard Hangouts!</h1>
 
-<% @hangouts.each do |hangout| %>
+<% @posts.each do |post| %>
 <div>
-  <b>Hanging out at:</b> <%= hangout.event %>
+  <b>Hanging out at:</b> <%= post.event %>
   <br />  
-  <b>Name:</b> <%= hangout.name %>
+  <b>Location:</b> <%= post.location %>
   <br />
-  <b>Location:</b> <%= hangout.location %>
+  <b>Description:</b> <%= post.description %>
   <br />
-  <b>Description:</b> <%= hangout.description %>
-  <br />
-  <b>Start time:</b> <%= hangout.start_date_time %>
+  <b>Start time:</b> <%= post.start_date_time %>
   <br />
   <b>End time:</b> 
   <br />
-  <%= hangout.end_date_time %>
+  <%= post.end_date_time %>
 </div>
 <hr/>
 <% end %>
 
-<%= link_to 'New hangout', new_hangout_path %>
+<%= link_to 'New hangout', new_post_path %>
