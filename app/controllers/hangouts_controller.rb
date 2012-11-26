@@ -8,4 +8,8 @@ class HangoutsController < ApplicationController
     redirect_to root_path
   end
   
+  def edit
+    @hangout = Hangout.find(params[:hangout])
+  end
+  
 end
