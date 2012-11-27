@@ -2,9 +2,11 @@
 
 <% @posts.each do |post| %>
 <div>
-  <b>Hanging out at:</b> <%= post.event %>
+  <b>Name: </b> <%= post.user.email %>
+  <br />
+  <b>Event:</b> <%= post.event %>
   <br />  
-  <b>Location:</b> <%= post.location %>
+  <b>Hanging out at:</b> <%= post.location %>
   <br />
   <b>Description:</b> <%= post.description %>
   <br />
