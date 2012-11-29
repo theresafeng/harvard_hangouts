@@ -19,6 +19,7 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to 'New hangout', new_post_path %>
+  <%= link_to 'New hangout', new_post_path %> |
+  <%= link_to 'My posts', posts_path %>
 <% end %>
 
