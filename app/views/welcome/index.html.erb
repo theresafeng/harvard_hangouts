@@ -1,5 +1,7 @@
 <h1>Welcome to Harvard Hangouts!</h1>
 
+<%= paginate @posts%>
+
 <% @posts.each do |post| %>
 <div>
   <b>Name: </b> <%= post.user.username %>
