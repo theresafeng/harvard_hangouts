@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = current_user.posts
+    @posts = current_user.posts.order("start_date_time DESC").page(params[:page]).per(2)
 
     respond_to do |format|
       format.html # index.html.erb
