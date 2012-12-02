@@ -1,8 +1,21 @@
-<h1>Listing hangouts</h1>
+<div class="row-fluid">
+	<div class="span10 offset2">
+		<h1>Listing hangouts</h1>
+	</div>
+</div>
+</br>
 
-<%= paginate @posts%>
+<div class="row-fluid">
+    <div class="span2 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+			<% if user_signed_in? %>
+		  		<li><%= link_to 'New Hangout', new_post_path %></li>
+			<% end %>
+        </ul>
+    </div>
 
-<table>
+<div class="span6">
+<table class="table table-striped">
   <tr>
     <th>Event</th>
     <th>Description</th>
@@ -21,15 +34,24 @@
     <td><%= post.location %></td>
     <td><%= post.start_date_time %></td>
     <td><%= post.end_date_time %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td>
+		<ul class="nav nav-pills">
+    		<li><%= link_to 'View', post %></li>
+		</ul>
+	</td>
+	<td>
+		<ul class="nav nav-pills">
+			<li><%= link_to 'Edit', edit_post_path(post) %></li>
+		</ul>
+	</td>
+	<td>
+		<ul class="nav nav-pills">
+    		<li><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+		</ul>
+	</td>
   </tr>
 <% end %>
 </table>
+</div>
 
-<br />
-
-<%= link_to 'Home', root_path %> |
-<%= link_to 'New Hangout', new_post_path %>
-
+</div>

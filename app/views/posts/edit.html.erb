@@ -1,6 +1,20 @@
-<h1>Editing post</h1>
+<div class="row-fluid">
+	<div class="span6 offset2">
+		<h1>Editing Post</h1>
+	</div>
+</div>
 
+<div class="row-fluid">
+    <div class="span2 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+			<% if user_signed_in? %>
+		  		<li><%= link_to 'Cancel', posts_path %></li>
+			<% end %>
+        </ul>
+    </div>
+
+<div class="span10">
 <%= render 'form' %>
+</div>
 
-<%= link_to 'My posts', @post %> |
-<%= link_to 'Back', posts_path %>
+</div>

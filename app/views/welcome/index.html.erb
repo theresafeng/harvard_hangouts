@@ -1,27 +1,40 @@
-<h1>Welcome to Harvard Hangouts!</h1>
-
-<%= paginate @posts%>
-
-<% @posts.each do |post| %>
-<div>
-  <b>Name: </b> <%= post.user.username %>
-  <br />
-  <b>Event:</b> <%= post.event %>
-  <br />  
-  <b>Hanging out at:</b> <%= post.location %>
-  <br />
-  <b>Description:</b> <%= post.description %>
-  <br />
-  <b>Start time:</b> <%= post.start_date_time %>
-  <br />
-  <b>End time:</b> <%= post.end_date_time %>
-  <br />
+</br>
+<div class="row-fluid">
+	<div class="span10 offset2">
+		<h1>Welcome to Harvard Hangouts!</h1>
+	</div>
 </div>
-<hr/>
-<% end %>
+</br>
 
-<% if user_signed_in? %>
-  <%= link_to 'New hangout', new_post_path %> |
-  <%= link_to 'My posts', posts_path %>
-<% end %>
+<div class="row-fluid">
+    <div class="span2 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+			</br>
+			<% if user_signed_in? %>
+		  		<li><%= link_to 'New Hangout', new_post_path %></li>
+			<% end %>
+        </ul>
+    </div>
+
+<div class="span6">
+	<% @posts.each do |post| %>
+		<div class="well">
+		<h2><%= post.event %></h2>
+  		<b>User: </b> <%= post.user.username %>
+  		<br />
+  		<b>Hanging out at:</b> <%= post.location %>
+  		<br />
+  		<b>Description:</b> <%= post.description %>
+  		<br />
+  		<b>Start time:</b> <%= post.start_date_time %>
+  		<br />
+  		<b>End time:</b> <%= post.end_date_time %>
+  		<br />
+		</div>
+	<% end %>		
+</div>
+
+<div class="span3 offset6">
+	<%= paginate @posts%>
+</div>
 

@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HarvardHangouts</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>HarvardHangouts</title>
+	<%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container-fluid">
+	          <a class="brand" href="/">HarvardHangouts</a>
+	          <div class="nav-collapse collapse">
+	            <ul class="nav pull-right">
+						<% if user_signed_in? %>
+							<li><%= link_to 'Log out', destroy_user_session_path, :method => :delete %></li>
+						<% else %>
+			  				<li><%= link_to 'Sign up', new_user_registration_path %></li>
+			  				<li><%= link_to 'Log in', new_user_session_path %></li>
+						<% end %>
+	            </ul>
+	            <ul class="nav">
+	              <li><a href="/">Home</a></li>
+				  <% if user_signed_in? %>
+				  		<li><%= link_to 'My Posts', posts_path %></li>
+				  <% end %>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	        </div>
+	      </div>
+	</div>
 
-<% if user_signed_in? %>
-	<%= link_to 'Log out', destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to 'Sign up', new_user_registration_path %> |
-  <%= link_to 'Log in', new_user_session_path %>
-<% end %>
+<div class="container-fluid">
+	
+	<div class="row-fluid">
+		<div class="span2 offset10">
+		</div>
+	</div>
 
-<%= yield %>
+	<%= yield %>
+
+</div>
 
 </body>
 </html>

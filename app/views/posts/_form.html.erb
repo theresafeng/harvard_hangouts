@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+<div class="span3">
   <div class="field">
     <%= f.label :event %><br />
     <%= f.text_field :event %>
@@ -23,6 +24,8 @@
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
+</div>
+<div class="span5 offset">
   <div class="field">
     <%= f.label :start_date_time %><br />
     <%= f.datetime_select :start_date_time %>
@@ -31,7 +34,10 @@
     <%= f.label :end_date_time %><br />
     <%= f.datetime_select :end_date_time %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+</br>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <a class="btn" href="/posts">Cancel</a>
+    
   </div>
+</div>
 <% end %>
