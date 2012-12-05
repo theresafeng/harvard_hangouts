@@ -26,9 +26,9 @@
   		<br />
   		<b>Description:</b> <%= post.description %>
   		<br />
-  		<b>Start time:</b> <%= post.start_date_time %>
+  		<b>Start time:</b> <%= l(post.start_date_time, :format =>:long) %>
   		<br />
-  		<b>End time:</b> <%= post.end_date_time %>
+  		<b>End time:</b> <%= l(post.end_date_time, :format =>:long) %>
   		<br />
 		</div>
 	<% end %>		

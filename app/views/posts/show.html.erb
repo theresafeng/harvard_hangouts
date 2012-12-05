@@ -37,12 +37,12 @@
 
 <p>
   <b>Start date time:</b>
-  <%= @post.start_date_time %>
+  <%= l(@post.start_date_time, :format =>:long) %>
 </p>
 
 <p>
   <b>End date time:</b>
-  <%= @post.end_date_time %>
+  <%= l(@post.end_date_time, :format => :long) %>
 </p>
 	</div>
 </div>

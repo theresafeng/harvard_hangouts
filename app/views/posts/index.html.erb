@@ -32,8 +32,8 @@
     <td><%= post.event %></td>
     <td><%= post.description %></td>
     <td><%= post.location %></td>
-    <td><%= post.start_date_time %></td>
-    <td><%= post.end_date_time %></td>
+    <td><%= l(post.start_date_time, :format =>:long) %></td>
+    <td><%= l(post.end_date_time, :format =>:long) %></td>
 	<td>
 		<ul class="nav nav-pills">
     		<li><%= link_to 'View', post %></li>
