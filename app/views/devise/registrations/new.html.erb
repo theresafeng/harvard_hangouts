@@ -15,17 +15,25 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+  <div><%= f.label :username %>
+  <%= f.text_field :username %></div><br />
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div><%= f.label :email %>
+  <%= f.email_field :email %></div><br />
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.label :year %>
+    <%= f.select :year, [['2013', 'Senior'],['2014', 'Junior'],['2015', 'Sophomore'],['2016', 'Freshman']]%><br />
+  </div><br />
+   
+  <div><%= f.label :house %>
+    <%= f.select :house, [['Adams', 'Adams'],['Cabot', 'Cabot'],['Currier', 'Currier'],['Dunster', 'Dunster'],['Eliot', 'Eliot'],['Kirkland', 'Kirkland'],['Lowell', 'Lowell'],['Mather', 'Mather'],['Pfoho', 'Pfoho'],['Quincy', 'Quincy'],['Winthrop', 'Winthrop']]%><br />
+  </div><br />
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div><%= f.label :password %>
+  <%= f.password_field :password %></div><br />
+
+  <div><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %></div><br />
 
   <div><button class="btn btn-primary" type="submit">Sign Up</button>	
   <a class="btn" href="/">Cancel</a></div>
