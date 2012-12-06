@@ -1,10 +1,10 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
+<%= form_for(@hangout) do |f| %>
+  <% if @hangout.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
 
       <ul>
-      <% @post.errors.full_messages.each do |msg| %>
+      <% @hangout.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -36,7 +36,7 @@
   </div>
 </br>
     <button class="btn btn-primary" type="submit">Submit</button>
-    <a class="btn" href="/posts">Cancel</a>
+    <a class="btn" href="/hangouts">Cancel</a>
     
   </div>
 </div>

@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionController::TestCase
+class HangoutsControllerTest < ActionController::TestCase
   setup do
-    @post = posts(:one)
+    @hangout = hangouts(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:posts)
+    assert_not_nil assigns(:hangouts)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create post" do
-    assert_difference('Post.count') do
-      post :create, post: { description: @post.description, end_date_time: @post.end_date_time, event: @post.event, location: @post.location, start_date_time: @post.start_date_time }
+  test "should create hangout" do
+    assert_difference('Hangout.count') do
+      hangout :create, hangout: { description: @hangout.description, end_date_time: @hangout.end_date_time, event: @hangout.event, location: @hangout.location, start_date_time: @hangout.start_date_time }
     end
 
-    assert_redirected_to post_path(assigns(:post))
+    assert_redirected_to hangout_path(assigns(:hangout))
   end
 
-  test "should show post" do
-    get :show, id: @post
+  test "should show hangout" do
+    get :show, id: @hangout
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @post
+    get :edit, id: @hangout
     assert_response :success
   end
 
-  test "should update post" do
-    put :update, id: @post, post: { description: @post.description, end_date_time: @post.end_date_time, event: @post.event, location: @post.location, start_date_time: @post.start_date_time }
-    assert_redirected_to post_path(assigns(:post))
+  test "should update hangout" do
+    put :update, id: @hangout, hangout: { description: @hangout.description, end_date_time: @hangout.end_date_time, event: @hangout.event, location: @hangout.location, start_date_time: @hangout.start_date_time }
+    assert_redirected_to hangout_path(assigns(:hangout))
   end
 
-  test "should destroy post" do
-    assert_difference('Post.count', -1) do
-      delete :destroy, id: @post
+  test "should destroy hangout" do
+    assert_difference('Hangout.count', -1) do
+      delete :destroy, id: @hangout
     end
 
-    assert_redirected_to posts_path
+    assert_redirected_to hangouts_path
   end
 end

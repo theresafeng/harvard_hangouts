@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Hangout < ActiveRecord::Base
   belongs_to :user
   attr_accessible :description, :end_date_time, :event, :location, :start_date_time
   validates :description, :presence => true, length: {maximum: 100}  

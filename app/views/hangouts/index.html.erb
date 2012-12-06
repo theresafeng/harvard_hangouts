@@ -9,7 +9,7 @@
     <div class="span2 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav">
 			<% if user_signed_in? %>
-		  		<li><%= link_to 'New Hangout', new_post_path %></li>
+		  		<li><%= link_to 'New Hangout', new_hangout_path %></li>
 			<% end %>
         </ul>
     </div>
@@ -27,26 +27,26 @@
     <th></th>
   </tr>
 
-<% @posts.each do |post| %>
+<% @hangouts.each do |hangout| %>
   <tr>
-    <td><%= post.event %></td>
-    <td><%= post.description %></td>
-    <td><%= post.location %></td>
-    <td><%= l(post.start_date_time, :format =>:long) %></td>
-    <td><%= l(post.end_date_time, :format =>:long) %></td>
+    <td><%= hangout.event %></td>
+    <td><%= hangout.description %></td>
+    <td><%= hangout.location %></td>
+    <td><%= l(hangout.start_date_time, :format =>:long) %></td>
+    <td><%= l(hangout.end_date_time, :format =>:long) %></td>
 	<td>
 		<ul class="nav nav-pills">
-    		<li><%= link_to 'View', post %></li>
+    		<li><%= link_to 'View', hangout %></li>
 		</ul>
 	</td>
 	<td>
 		<ul class="nav nav-pills">
-			<li><%= link_to 'Edit', edit_post_path(post) %></li>
+			<li><%= link_to 'Edit', edit_hangout_path(hangout) %></li>
 		</ul>
 	</td>
 	<td>
 		<ul class="nav nav-pills">
-    		<li><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    		<li><%= link_to 'Delete', hangout, method: :delete, data: { confirm: 'Are you sure?' } %></li>
 		</ul>
 	</td>
   </tr>

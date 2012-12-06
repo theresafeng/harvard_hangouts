@@ -3,7 +3,7 @@ class AddComments < ActiveRecord::Migration
     create_table :comments do |t|
        t.references :user
        t.text :content
-       t.references :post
+       t.references :hangout
 
        t.timestamps
      end

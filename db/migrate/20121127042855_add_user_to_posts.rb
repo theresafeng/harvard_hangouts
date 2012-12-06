@@ -1,5 +1,5 @@
-class AddUserToPosts < ActiveRecord::Migration
+class AddUserToHangouts < ActiveRecord::Migration
   def change
-    add_column :posts, :user_id, :integer
+    add_column :hangouts, :user_id, :integer
   end
 end

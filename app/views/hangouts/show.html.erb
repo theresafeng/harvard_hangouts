@@ -2,7 +2,7 @@
 
 <div class="row-fluid">
 	<div class="span6 offset2">
-		<h1><%= @post.event %></h1>
+		<h1><%= @hangout.event %></h1>
 	</div>
 </div>
 
@@ -16,9 +16,9 @@
     <div class="span2 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav">
 			<% if user_signed_in? %>
-	  			<li><%= link_to 'Back', posts_path %></li>
-		  		<li><%= link_to 'New Hangout', new_post_path %></li>
-			  	<li><%= link_to 'Edit Hangout', edit_post_path(@post) %></li>
+	  			<li><%= link_to 'Back', hangouts_path %></li>
+		  		<li><%= link_to 'New Hangout', new_hangout_path %></li>
+			  	<li><%= link_to 'Edit Hangout', edit_hangout_path(@hangout) %></li>
 			<% end %>
         </ul>
     </div>
@@ -27,22 +27,22 @@
 	<div class="well">
 <p>
   <b>Description:</b>
-  <%= @post.description %>
+  <%= @hangout.description %>
 </p>
 
 <p>
   <b>Location:</b>
-  <%= @post.location %>
+  <%= @hangout.location %>
 </p>
 
 <p>
   <b>Start date time:</b>
-  <%= l(@post.start_date_time, :format =>:long) %>
+  <%= l(@hangout.start_date_time, :format =>:long) %>
 </p>
 
 <p>
   <b>End date time:</b>
-  <%= l(@post.end_date_time, :format => :long) %>
+  <%= l(@hangout.end_date_time, :format => :long) %>
 </p>
 	</div>
 </div>

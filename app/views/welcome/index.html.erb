@@ -11,30 +11,32 @@
         <ul class="nav nav-list bs-docs-sidenav">
 			</br>
 			<% if user_signed_in? %>
-		  		<li><%= link_to 'New Hangout', new_post_path %></li>
+		  		<li><%= link_to 'New Hangout', new_hangout_path %></li>
 			<% end %>
         </ul>
     </div>
 
 <div class="span6">
-	<% @posts.each do |post| %>
+	<% @hangouts.each do |hangout| %>
 		<div class="well">
-		<h2><%= post.event %></h2>
-  		<b>User: </b> <%= post.user.username %>
+		<h2><%= hangout.event %></h2>
+  		<b>User: </b> <% if (hangout.user != nil) %>
+  		<%= hangout.user.username %>
+  		<% end %>
   		<br />
-  		<b>Hanging out at:</b> <%= post.location %>
+  		<b>Hanging out at:</b> <%= hangout.location %>
   		<br />
-  		<b>Description:</b> <%= post.description %>
+  		<b>Description:</b> <%= hangout.description %>
   		<br />
-  		<b>Start time:</b> <%= l(post.start_date_time, :format =>:long) %>
+  		<b>Start time:</b> <%= l(hangout.start_date_time, :format =>:long) %>
   		<br />
-  		<b>End time:</b> <%= l(post.end_date_time, :format =>:long) %>
+  		<b>End time:</b> <%= l(hangout.end_date_time, :format =>:long) %>
   		<br />
 		</div>
 	<% end %>		
 </div>
 
 <div class="span3 offset6">
-	<%= paginate @posts%>
+	<%= paginate @hangouts%>
 </div>
 

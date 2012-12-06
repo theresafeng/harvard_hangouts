@@ -1,6 +1,6 @@
-class CreatePosts < ActiveRecord::Migration
+class CreateHangouts < ActiveRecord::Migration
   def change
-    create_table :posts do |t|
+    create_table :hangouts do |t|
       t.string :event
       t.text :description
       t.string :location

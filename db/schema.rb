@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20121127053315) do
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.text     "content"
-    t.integer  "post_id"
+    t.integer  "hangout_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20121127053315) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "hangouts", :force => true do |t|
     t.string   "event"
     t.text     "description"
     t.string   "location"
