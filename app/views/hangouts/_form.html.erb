@@ -13,25 +13,25 @@
 
 <div class="span3">
   <div class="field">
-    <%= f.select :event, [['Study', 'Study'],['Session', 'Session'],['Party', 'Party']]%>
+    <%= f.select :event, [['Study', 'Study'],['Work', 'Work'],['Session', 'Session'],['Party', 'Party']]%>
   </div>
   
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :location %><br />
+    <%= f.label :location %>
     <%= f.text_field :location %>
-  </div>
+  </div><br />
 </div>
 <div class="span5 offset">
   <div class="field">
-    <%= f.label :start_date_time %><br />
+    <%= f.label :start_date_time %>
     <%= f.time_select :start_date_time %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :end_date_time %><br />
+    <%= f.label :end_date_time %>
     <%= f.time_select :end_date_time %>
   </div>
 </br>
