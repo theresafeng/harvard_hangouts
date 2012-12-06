@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206061615) do
+ActiveRecord::Schema.define(:version => 20121206061720) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.text     "content"
-    t.integer  "post_id"
+    t.integer  "hangout_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -26,16 +26,6 @@ ActiveRecord::Schema.define(:version => 20121206061615) do
     t.string   "event"
     t.string   "location"
     t.text     "description"
-    t.datetime "start_date_time"
-    t.datetime "end_date_time"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "event"
-    t.text     "description"
-    t.string   "location"
     t.datetime "start_date_time"
     t.datetime "end_date_time"
     t.datetime "created_at",      :null => false
@@ -58,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20121206061615) do
     t.datetime "updated_at",                             :null => false
     t.string   "username"
     t.string   "year"
+    t.string   "house"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
