@@ -12,7 +12,6 @@
 			</br>
 			<% if user_signed_in? %>
 		  		<li><%= link_to 'New Hangout', new_hangout_path %></li>
-			<% end %>
         </ul>
     </div>
 
@@ -39,4 +38,4 @@
 <div class="span3 offset6">
 	<%= paginate @hangouts%>
 </div>
-
+<% end %>
