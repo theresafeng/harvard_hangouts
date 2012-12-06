@@ -13,9 +13,9 @@
 
 <div class="span3">
   <div class="field">
-    <%= f.label :event %><br />
-    <%= f.text_field :event %>
+    <%= f.select :event, [['Study', 'Study'],['Session', 'Session'],['Party', 'Party']]%>
   </div>
+  
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
@@ -28,11 +28,11 @@
 <div class="span5 offset">
   <div class="field">
     <%= f.label :start_date_time %><br />
-    <%= f.datetime_select :start_date_time %>
+    <%= f.time_select :start_date_time %>
   </div>
   <div class="field">
     <%= f.label :end_date_time %><br />
-    <%= f.datetime_select :end_date_time %>
+    <%= f.time_select :end_date_time %>
   </div>
 </br>
     <button class="btn btn-primary" type="submit">Submit</button>
