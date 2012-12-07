@@ -45,6 +45,35 @@
   <%= l(@hangout.end_date_time, :format => :long) %>
 </p>
 	</div>
+
+<h3>Comments</h3>
+<% @hangout.comments.each do |comment| %>
+<h5>User says:</h5>
+<p><%= comment.content %></p>
+<% end %>
+
+</br>
+<h4>Add Comment</h4>
+<%= form_for([@hangout, @hangout.comments.build]) do |f| %>
+  <% if @hangout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
+
+      <ul>
+      <% @hangout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <a class="btn" href="/hangouts">Cancel</a>
+<% end %>
+
 </div>
 
 </div>

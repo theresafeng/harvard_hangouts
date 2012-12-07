@@ -2,5 +2,8 @@
 
 - Paginate posts on the main page
 - Posts should be associated to the user
+	- I think the problem here is that we didn't set up the relationship between Users and Hangouts correctly.. I don't understand Devise, so I don't know how we would go about fixing this
 - User can only edit/delete own posts
 - Clean up hangouts
+- Put something instead when no posts are available or if user can't see any
+- Disallow users to post blank comments

@@ -6,7 +6,10 @@ HarvardHangouts::Application.routes.draw do
     # resources :comments
   # end
 
-  resources :hangouts
+  resources :hangouts do
+    resources :comments
+  end
+  
   root :to => 'welcome#index'
   
   # The priority is based upon order of creation:
