@@ -1,5 +1,6 @@
 class HangoutsController < ApplicationController
   
+  # ensure only users can access hangouts
   before_filter :authenticate_user!
   
   # GET /hangouts
