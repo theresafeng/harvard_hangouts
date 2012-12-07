@@ -48,8 +48,10 @@
 
 <h3>Comments</h3>
 <% @hangout.comments.each do |comment| %>
+<div class="well well-small">
 <h5>User says:</h5>
-<p><%= comment.content %></p>
+<%= comment.content %>
+</div>
 <% end %>
 
 </br>
