@@ -7,3 +7,4 @@
 - Clean up hangouts
 - Put something instead when no posts are available or if user can't see any
 - Disallow users to post blank comments
+- Add AM/PM and possibly different day to time
