@@ -18,7 +18,7 @@
 <div class="span6">
 	<% @hangouts.each do |hangout| %>
 		<div class="well">
-		<h2><%= hangout.event %></h2>
+		<h2><%= link_to hangout.event, hangout %></h2>
   		<b>User: </b> <% if (hangout.user != nil) %>
   		<%= hangout.user.username %>
   		<% end %>
