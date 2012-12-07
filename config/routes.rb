@@ -1,5 +1,6 @@
 HarvardHangouts::Application.routes.draw do
 
+  # use devise gem
   devise_for :users
 
   # resources :hangouts do
