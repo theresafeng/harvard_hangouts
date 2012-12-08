@@ -25,6 +25,7 @@
     <th></th>
   </tr>
 
+<% count = 0 %>
 <% @hangouts.each do |hangout| %>
   <tr>
     <td><%= hangout.event %></td>
@@ -48,8 +49,12 @@
 		</ul>
 	</td>
   </tr>
+  <% count += 1 %>
 <% end %>
 </table>
+<% if count == 0 %>
+	<h4><i>There are no hangouts to display. Try making one!</i></h4>
+<% end %>
 </div>
 
 </div>

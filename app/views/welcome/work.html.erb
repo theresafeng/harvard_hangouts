@@ -12,6 +12,7 @@
     </div>
 
 <div class="span6">
+	<% count = 0 %>
 	<% @hangouts.each do |hangout| %>
 		<div class="well">
 		<h2><%= link_to hangout.event, hangout %></h2>
@@ -28,6 +29,10 @@
   		<b>End:</b> <%= l(hangout.end_date_time, :format =>:long) %>
   		<br />
 		</div>
+		<% count += 1 %>
+	<% end %>	
+	<% if count == 0 %>
+		<h4><i>There are no hangouts to display. Try making one!</i></h4>
 	<% end %>		
 </div>
 

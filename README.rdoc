@@ -2,4 +2,3 @@
 
 - Fix pagination of non-index divisions
 - Check out layout of About page on Theresa's browser
-- Add something when there are no posts
