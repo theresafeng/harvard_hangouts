@@ -19,5 +19,12 @@ class WelcomeController < ApplicationController
   end
   def users
     @user = User.find(params[:id])
+    @hangouts = Hangout.find(:all)
+    @count = 0
+  	@hangouts.each do |hangout|
+  	  if hangout.user.username == @user.username
+  	    @count += 1
+  	  end
+  	end
   end
 end
