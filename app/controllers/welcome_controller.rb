@@ -17,4 +17,7 @@ class WelcomeController < ApplicationController
   end
   def about
   end
+  def users
+    @user = User.find(params[:id])
+  end
 end

@@ -1,0 +1,21 @@
+<% @user = User.find(params[:id]) %>
+
+</br>
+<div class="row-fluid">
+	<div class="span10 offset2">
+		<h2><%= @user.username %></h2>
+	</div>
+</div>
+</br>
+
+<div class="row-fluid">
+    <div class="span2 bs-docs-sidebar">
+        <img src="/assets/harvard.jpg" />
+    </div>
+	<div class="span6">
+		<ul>
+		  <li><p><b>House</b>: <%= @user.house %></p></li>
+		  <li><p><b>Year</b>: <%= @user.year %></p></li>
+		</ul>
+	</div>
+</div>

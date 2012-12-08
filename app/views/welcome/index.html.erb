@@ -16,7 +16,7 @@
 		<div class="well">
 		<h2><%= link_to hangout.event, hangout %></h2>
   		<b>User: </b> <% if (hangout.user != nil) %>
-  		<%= hangout.user.username %>
+  		<%= link_to hangout.user.username, user_profile_path(hangout.user) %>
   		<% end %>
   		<br />
   		<b>Hanging out at:</b> <%= hangout.location %>
@@ -32,7 +32,7 @@
 </div>
 
 <div class="span3 offset4">
-	<%= paginate @hangouts%>
+	<%= paginate @hangouts %>
 </div>
 <% end %>
 </div>

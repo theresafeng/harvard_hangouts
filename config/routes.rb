@@ -18,6 +18,7 @@ HarvardHangouts::Application.routes.draw do
   match '/parties' => 'welcome#parties'
   match '/other' => 'welcome#other'
   match '/about' => 'welcome#about'
+  match '/users/:id' => 'welcome#users', :as => :user_profile
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
