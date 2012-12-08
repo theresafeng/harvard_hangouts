@@ -31,8 +31,8 @@
     <td><%= hangout.event %></td>
     <td><%= hangout.description %></td>
     <td><%= hangout.location %></td>
-    <td><%= l(hangout.start_date_time, :format =>:long) %></td>
-    <td><%= l(hangout.end_date_time, :format =>:long) %></td>
+    <td><%= hangout.start_date_time.strftime("%B %-d, %Y %-I:%M %p") %></td>
+    <td><%= hangout.end_date_time.strftime("%B %-d, %Y %-I:%M %p") %></td>
 	<td>
 		<ul class="nav nav-pills">
     		<li><%= link_to 'View', hangout %></li>

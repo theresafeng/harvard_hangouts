@@ -30,9 +30,9 @@
   		<br />
   		<b>Description:</b> <%= hangout.description %>
   		<br />
-  		<b>Start:</b> <%= l(hangout.start_date_time, :format =>:long) %>
+  		<b>Start:</b> <%= hangout.start_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
   		<br />
-  		<b>End:</b> <%= l(hangout.end_date_time, :format =>:long) %>
+  		<b>End:</b> <%= hangout.end_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
   		<br />
 		</div>
 		<% count += 1 %>
