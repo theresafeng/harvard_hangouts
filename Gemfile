@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'devise'
 gem 'rails', '3.2.9'
+
+# add user authentication
+gem 'devise'
+
+# add pagination
 gem 'kaminari'
 
 group :development do
