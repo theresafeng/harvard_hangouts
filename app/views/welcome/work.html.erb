@@ -1,43 +1,52 @@
 </br>
+
 <div class="row-fluid">
 	<div class="span10 offset2">
+		<!-- heading -->
 		<h1>HarvardHangouts: Work</h1>
 	</div>
 </div>
+
 </br>
 
 <div class="row-fluid">
+	<!-- blank sidebar for spacing purposes -->
     <div class="span2 bs-docs-sidebar">
-			<% if user_signed_in? %>
     </div>
-
-<div class="span6">
-	<% count = 0 %>
-	<% @hangouts.each do |hangout| %>
-		<div class="well">
-		<h2><%= link_to hangout.event, hangout %></h2>
-  		<b>User: </b> <% if (hangout.user != nil) %>
-  		<%= link_to hangout.user.username, user_profile_path(hangout.user) %>
-  		<% end %>
-  		<br />
-  		<b>Hanging out at:</b> <%= hangout.location %>
-  		<br />
-  		<b>Description:</b> <%= hangout.description %>
-  		<br />
-  		<b>Start:</b> <%= hangout.start_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
-  		<br />
-  		<b>End:</b> <%= hangout.end_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
-  		<br />
+	
+	<!-- list hangouts -->
+	<% if user_signed_in? %>
+		<div class="span6">
+			<% count = 0 %>
+			<% @hangouts.each do |hangout| %>
+				<div class="well">
+					<h2><%= link_to hangout.event, hangout %></h2>
+  					<b>User: </b>
+						<% if (hangout.user != nil) %>
+  							<%= link_to hangout.user.username, user_profile_path(hangout.user) %>
+  						<% end %>
+  					<br />
+  					<b>Hanging out at:</b> <%= hangout.location %>
+  					<br />
+  					<b>Description:</b> <%= hangout.description %>
+  					<br />
+  					<b>Start:</b> <%= hangout.start_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
+  					<br />
+  					<b>End:</b> <%= hangout.end_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
+  					<br />
+				</div>
+				<% count += 1 %>
+			<% end %>	
+		
+			<!-- message when no hangouts -->
+			<% if count == 0 %>
+				<h4><i>There are no hangouts to display. Try making one!</i></h4>
+			<% end %>		
 		</div>
-		<% count += 1 %>
-	<% end %>	
-	<% if count == 0 %>
-		<h4><i>There are no hangouts to display. Try making one!</i></h4>
-	<% end %>		
-</div>
 
-<div class="span3 offset4">
-	<%= paginate @hangouts %>
-</div>
-<% end %>
+	<!-- paginate -->
+	<div class="span3 offset4">
+		<%= paginate @hangouts %>
+	</div>
+	<% end %>
 </div>
