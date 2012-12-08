@@ -30,12 +30,12 @@
   <div class="field">
     Start Time
 	</br>
-    <%= f.datetime_select :start_date_time, :order => [:month, :day, :hour, :minute] %>
+    <%= f.datetime_select :start_date_time, {:order => [:month, :day, :hour, :minute]}, :style => "width: 125px;" %>
   </div><br />
   <div class="field">
     End Time
 	</br>
-    <%= f.datetime_select :end_date_time, :order => [:month, :day, :hour, :minute] %>
+    <%= f.datetime_select :end_date_time, {:order => [:month, :day, :hour, :minute]}, :style => "width: 125px;" %>
   </div>
 </br>
     <button class="btn btn-primary" type="submit">Submit</button>
