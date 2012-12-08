@@ -11,32 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207075213) do
+ActiveRecord::Schema.define(:version => 20121206061720) do
 
   create_table "comments", :force => true do |t|
+    t.integer  "user_id"
     t.text     "content"
     t.integer  "hangout_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "comments", ["hangout_id"], :name => "index_comments_on_hangout_id"
-
   create_table "hangouts", :force => true do |t|
     t.string   "name"
     t.string   "event"
     t.string   "location"
     t.text     "description"
-    t.datetime "start_date_time"
-    t.datetime "end_date_time"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "event"
-    t.text     "description"
-    t.string   "location"
     t.datetime "start_date_time"
     t.datetime "end_date_time"
     t.datetime "created_at",      :null => false

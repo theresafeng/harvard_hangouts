@@ -6,7 +6,8 @@ class HangoutsController < ApplicationController
   # GET /hangouts
   # GET /hangouts.json
   def index
-    @hangouts = Hangout.order("start_date_time DESC").page(params[:page]).per(10)
+    # ensure users can only see own hangouts
+    @hangouts = current_user.hangouts.order("start_date_time DESC").page(params[:page]).per(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @hangouts }
