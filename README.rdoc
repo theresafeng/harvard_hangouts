@@ -1,3 +1,5 @@
 * TODO
 
 - Fix pagination of non-index divisions
+- Check out layout of About page on Theresa's browser
+- Make sure users can't manually type in the URL to pages they shouldn't be able to access
