@@ -42,7 +42,11 @@ class CommentsController < ApplicationController
   def create
     @hangout = Hangout.find(params[:hangout_id])
     @comment = Comment.new(params[:comment])
+    
+    # associate comment to user
     @comment.user = current_user
+    
+    # associate comment to hangout
     @comment.hangout = @hangout
     @comment.save
     @hangout.save
