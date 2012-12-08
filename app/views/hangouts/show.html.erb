@@ -19,7 +19,9 @@
 
 <div class="span4">
 	<div class="well">
+		<% if @hangout.user == current_user %>
   	<p class="pull-right"><%= link_to 'Edit Hangout', edit_hangout_path(@hangout) %></p>
+		<% end %>
 <p>
   <b>User:</b>	
   <%= link_to @hangout.user.username, user_profile_path(@hangout.user) %>
