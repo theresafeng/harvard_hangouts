@@ -1,11 +1,13 @@
-</br>
+<br/>
 
+<!-- hangout type -->
 <div class="row-fluid">
 	<div class="span6 offset2">
 		<h1><%= @hangout.event %></h1>
 	</div>
 </div>
 
+<!-- notice message if present -->
 <div class="row-fluid">
 	<div class="span6 offset2">
 		<p id="notice"><%= notice %></p>
@@ -13,72 +15,74 @@
 </div>
 
 <div class="row-fluid">
+	<!-- spacing -->
     <div class="span2 bs-docs-sidebar">
-        </ul>
     </div>
 
-<div class="span4">
-	<div class="well">
-		<% if @hangout.user == current_user %>
-  	<p class="pull-right"><%= link_to 'Edit Hangout', edit_hangout_path(@hangout) %></p>
+	<!-- hangout -->
+	<div class="span4">
+		<div class="well">
+			<% if @hangout.user == current_user %>
+  				<p class="pull-right"><%= link_to 'Edit Hangout', edit_hangout_path(@hangout) %></p>
+			<% end %>
+			<p>
+  				<b>User:</b>	
+  				<%= link_to @hangout.user.username, user_profile_path(@hangout.user) %>
+			</p>
+			<p>
+  				<b>Description:</b>
+  				<%= @hangout.description %>
+			</p>
+			<p>
+  				<b>Location:</b>
+  				<%= @hangout.location %>
+			</p>
+			<p>
+  				<b>Start:</b>
+  				<%= @hangout.start_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
+			</p>
+			<p>
+  				<b>End:</b>
+  				<%= @hangout.end_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
+			</p>
+		</div>
+	
+		<br/>
+	
+		<!-- comments section -->
+		<h3>Comments</h3>
+			<% @hangout.comments.each do |comment| %>
+				<div class="well well-small">
+					<h5>
+						<% if comment.user != nil %>
+							<%= link_to comment.user.username, user_profile_path(comment.user) %>
+						<% end %>
+				 	 	 says:
+					</h5>
+					<%= comment.content %>
+				</div>
+			<% end %>
+
+		<br/>
+	
+		<h4>Add Comment</h4>
+		<!-- error reporting -->
+		<%= form_for([@hangout, @hangout.comments.build]) do |f| %>
+  			<% if @hangout.errors.any? %>
+    			<div id="error_explanation">
+      				<h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
+					<ul>
+      					<% @hangout.errors.full_messages.each do |msg| %>
+        					<li><%= msg %></li>
+      					<% end %>
+      				</ul>
+    			</div>
+  			<% end %>
+
+			<div class="field">
+    			<%= f.text_area :content %>
+  			</div>
+    		<button class="btn btn-primary" type="submit">Submit</button>
 		<% end %>
-<p>
-  <b>User:</b>	
-  <%= link_to @hangout.user.username, user_profile_path(@hangout.user) %>
-
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @hangout.description %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @hangout.location %>
-</p>
-
-<p>
-  <b>Start:</b>
-  <%= @hangout.start_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
-</p>
-
-<p>
-  <b>End:</b>
-  <%= @hangout.end_date_time.strftime("%B %-d, %Y at %-I:%M %p") %>
-</p>
-
 	</div>
-</br>
-<h3>Comments</h3>
-<% @hangout.comments.each do |comment| %>
-<div class="well well-small">
-<h5><% if comment.user != nil %><%= link_to comment.user.username, user_profile_path(comment.user) %><% end %> says:</h5>
-<%= comment.content %>
-</div>
-<% end %>
-
-</br>
-<h4>Add Comment</h4>
-<%= form_for([@hangout, @hangout.comments.build]) do |f| %>
-  <% if @hangout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
-
-      <ul>
-      <% @hangout.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.text_area :content %>
-  </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
-<% end %>
-
-</div>
-
 </div>

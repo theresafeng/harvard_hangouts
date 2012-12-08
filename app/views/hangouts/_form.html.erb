@@ -1,46 +1,46 @@
+<!-- form for creating and editing hangouts -->
 <%= form_for(@hangout) do |f| %>
-  <% if @hangout.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
+	<!-- error messages -->
+  	<% if @hangout.errors.any? %>
+    	<div id="error_explanation">
+      		<h2><%= pluralize(@hangout.errors.count, "error") %> prohibited this hangout from being saved:</h2>
+      		<ul>
+      			<% @hangout.errors.full_messages.each do |msg| %>
+        			<li><%= msg %></li>
+      			<% end %>
+      		</ul>
+    	</div>
+  	<% end %>
 
-      <ul>
-      <% @hangout.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<div class="span3">
-  <div class="field">
-    <%= f.label :event %>
-    <%= f.select :event, [[],['Work', 'Work'],['Session', 'Session'],['Party', 'Party'],['Other', 'Other']]%>
-  </div><br />
+	<!-- necessary fields -->
+	<div class="span3">
+  		<div class="field">
+    		<%= f.label :event %>
+    		<%= f.select :event, [[],['Work', 'Work'],['Session', 'Session'],['Party', 'Party'],['Other', 'Other']]%>
+  		</div><br />
   
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div><br />
-</div>
-<div class="field">
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div><br />
-  <div class="field">
-    Start Time
-	</br>
-    <%= f.datetime_select :start_date_time, {:order => [:month, :day, :year, :hour, :minute]}, :style => "width: 110px;" %>
-  </div><br />
-  <div class="field">
-    End Time
-	</br>
-    <%= f.datetime_select :end_date_time, {:order => [:month, :day, :year, :hour, :minute]}, :style => "width: 110px;" %>
-  </div>
-</br>
-    <button class="btn btn-primary" type="submit">Submit</button>
-    <a class="btn" href="/">Cancel</a>
-    
-  </div>
-</div>
+  		<div class="field">
+    		<%= f.label :description %>
+    		<%= f.text_area :description %>
+  		</div><br />
+	</div>
+	<div class="span7">
+  		<div class="field">
+    		<%= f.label :location %>
+    		<%= f.text_field :location %>
+  		</div><br />
+  		<div class="field">
+    		Start Time
+			<br/>
+    		<%= f.datetime_select :start_date_time, {:order => [:month, :day, :year, :hour, :minute]}, :style => "width: 110px;" %>
+  		</div><br />
+  		<div class="field">
+    		End Time
+			<br/>
+    		<%= f.datetime_select :end_date_time, {:order => [:month, :day, :year, :hour, :minute]}, :style => "width: 110px;" %>
+  		</div>
+		<br/>
+    	<button class="btn btn-primary" type="submit">Submit</button>
+    	<a class="btn" href="/">Cancel</a> 
+  	</div>
 <% end %>
