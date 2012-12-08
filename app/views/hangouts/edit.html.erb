@@ -1,3 +1,10 @@
+
+<% if @hangout.user != current_user %>
+	<script type="text/javascript">
+		window.location.href="/"
+	</script>
+
+<% else %>
 <div class="row-fluid">
 	<div class="span6 offset2">
 		<h1>Editing Hangout</h1>
@@ -14,3 +21,4 @@
 </div>
 
 </div>
+<% end %>
