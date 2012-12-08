@@ -1,12 +1,12 @@
 class HangoutsController < ApplicationController
   
-  # ensure only users can access hangouts
+  # protect hangouts pages
   before_filter :authenticate_user!
   
   # GET /hangouts
   # GET /hangouts.json
   def index
-    # ensure users can only see own hangouts
+    # only list current user's hangouts
     @hangouts = current_user.hangouts.order("start_date_time DESC").page(params[:page]).per(10)
     respond_to do |format|
       format.html # index.html.erb
@@ -47,6 +47,7 @@ class HangoutsController < ApplicationController
     @hangout = Hangout.new(params[:hangout])
     @hangout.user = current_user
 
+    # save hangout
     respond_to do |format|
       if @hangout.save
         format.html { redirect_to @hangout, notice: 'Hangout was successfully created.' }
