@@ -1,3 +1,0 @@
-* TODO
-
-- Fix pagination of non-index divisions
