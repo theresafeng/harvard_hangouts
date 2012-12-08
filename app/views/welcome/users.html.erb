@@ -1,27 +1,32 @@
+<!-- get user id -->
 <% @user = User.find(params[:id]) %>
 
+<!-- redirect if not logged in -->
 <% if not user_signed_in? %>
 	<script type="text/javascript">
 		window.location.href="/about"
 	</script>
 
 <% else %>
-</br>
-<div class="row-fluid">
-	<div class="span10 offset2">
-		<h2>User Profile for <%= @user.username %></h2>
+	</br>
+	<!-- heading -->
+	<div class="row-fluid">
+		<div class="span10 offset2">
+			<h2>User Profile for <%= @user.username %></h2>
+		</div>
 	</div>
-</div>
-</br>
+	</br>
 
-<div class="row-fluid">
-    <div class="span2 bs-docs-sidebar">
-        <img src="/assets/shield.jpg" />
-    </div>
-	<div class="span6">
-		<p><b>House</b>: <%= @user.house %></p>
-		<p><b>Year</b>: <%= @user.year %></p>
-		<p><b>Hangout Count</b>: <%= @count %></p>
+	<!-- user profile information -->
+	<div class="row-fluid">
+		<!-- graphic -->
+    	<div class="span2 bs-docs-sidebar">
+        	<img src="/assets/shield.jpg" />
+    	</div>
+		<div class="span6">
+			<p><b>House</b>: <%= @user.house %></p>
+			<p><b>Year</b>: <%= @user.year %></p>
+			<p><b>Hangout Count</b>: <%= @count %></p>
+		</div>
 	</div>
-</div>
 <% end %>
