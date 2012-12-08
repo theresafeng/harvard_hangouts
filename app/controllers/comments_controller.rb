@@ -41,7 +41,10 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @hangout = Hangout.find(params[:hangout_id])
-    @hangout.comments.create(params[:comment])
+    @comment = Comment.new(params[:comment])
+    @comment.user = current_user
+    @comment.hangout = @hangout
+    @comment.save
     @hangout.save
     
     redirect_to(@hangout)

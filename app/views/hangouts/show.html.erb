@@ -14,17 +14,18 @@
 
 <div class="row-fluid">
     <div class="span2 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav">
-			<% if user_signed_in? %>
-	  			<li><%= link_to 'Back', hangouts_path %></li>
-		  		<li><%= link_to 'New Hangout', new_hangout_path %></li>
-			  	<li><%= link_to 'Edit Hangout', edit_hangout_path(@hangout) %></li>
-			<% end %>
         </ul>
     </div>
 
 <div class="span4">
 	<div class="well">
+  	<p class="pull-right"><%= link_to 'Edit Hangout', edit_hangout_path(@hangout) %></p>
+<p>
+  <b>User:</b>
+  <%= @hangout.user.username %>	
+
+</p>
+
 <p>
   <b>Description:</b>
   <%= @hangout.description %>
@@ -36,20 +37,21 @@
 </p>
 
 <p>
-  <b>Start date time:</b>
+  <b>Start:</b>
   <%= l(@hangout.start_date_time, :format =>:long) %>
 </p>
 
 <p>
-  <b>End date time:</b>
+  <b>End:</b>
   <%= l(@hangout.end_date_time, :format => :long) %>
 </p>
-	</div>
 
+	</div>
+</br>
 <h3>Comments</h3>
 <% @hangout.comments.each do |comment| %>
 <div class="well well-small">
-<h5>User says:</h5>
+<h5><% if comment.user != nil %><%= comment.user.username %><% end %> says:</h5>
 <%= comment.content %>
 </div>
 <% end %>
@@ -73,7 +75,6 @@
     <%= f.text_area :content %>
   </div>
     <button class="btn btn-primary" type="submit">Submit</button>
-    <a class="btn" href="/hangouts">Cancel</a>
 <% end %>
 
 </div>

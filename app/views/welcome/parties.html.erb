@@ -13,6 +13,7 @@
 
 <div class="span6">
 	<% @hangouts.each do |hangout| %>
+	  <% if hangout.event == 'Party' %>
 		<div class="well">
 		<h2><%= link_to hangout.event, hangout %></h2>
   		<b>User: </b> <% if (hangout.user != nil) %>
@@ -28,11 +29,9 @@
   		<b>End:</b> <%= l(hangout.end_date_time, :format =>:long) %>
   		<br />
 		</div>
+	  <% end %>
 	<% end %>		
 </div>
 
-<div class="span3 offset4">
-	<%= paginate @hangouts%>
-</div>
 <% end %>
 </div>

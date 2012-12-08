@@ -1,6 +1,7 @@
 <div class="row-fluid">
 	<div class="span10 offset2">
-		<h1>My hangouts</h1>
+		</br>
+		<h1>My Hangouts</h1>
 	</div>
 </div>
 </br>
@@ -8,9 +9,6 @@
 <div class="row-fluid">
     <div class="span2 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav">
-			<% if user_signed_in? %>
-		  		<li><%= link_to 'New Hangout', new_hangout_path %></li>
-			<% end %>
         </ul>
     </div>
 
@@ -54,4 +52,8 @@
 </table>
 </div>
 
+</div>
+
+<div class="span3 offset6">
+	<%= paginate @hangouts%>
 </div>

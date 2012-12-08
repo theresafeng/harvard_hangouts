@@ -13,6 +13,12 @@ HarvardHangouts::Application.routes.draw do
   
   root :to => 'welcome#index'
   
+  match '/work' => 'welcome#work'
+  match '/sessions' => 'welcome#sessions'
+  match '/parties' => 'welcome#parties'
+  match '/other' => 'welcome#other'
+  match '/about' => 'welcome#about'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
