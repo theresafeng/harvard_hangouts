@@ -21,8 +21,8 @@
 	<div class="well">
   	<p class="pull-right"><%= link_to 'Edit Hangout', edit_hangout_path(@hangout) %></p>
 <p>
-  <b>User:</b>
-  <%= @hangout.user.username %>	
+  <b>User:</b>	
+  <%= link_to @hangout.user.username, user_profile_path(@hangout.user) %>
 
 </p>
 
@@ -51,7 +51,7 @@
 <h3>Comments</h3>
 <% @hangout.comments.each do |comment| %>
 <div class="well well-small">
-<h5><% if comment.user != nil %><%= comment.user.username %><% end %> says:</h5>
+<h5><% if comment.user != nil %><%= link_to comment.user.username, user_profile_path(comment.user) %><% end %> says:</h5>
 <%= comment.content %>
 </div>
 <% end %>

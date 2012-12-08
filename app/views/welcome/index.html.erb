@@ -1,16 +1,22 @@
 </br>
 <div class="row-fluid">
+	<% if user_signed_in? %>
 	<div class="span10 offset2">
 		<h1>Welcome to HarvardHangouts!</h1>
 	</div>
+	<% else %>
+		<script type="text/javascript">
+	    	window.location.href="/about"
+		</script>
+	<% end %>
 </div>
 </br>
 
 <div class="row-fluid">
-    <div class="span2 bs-docs-sidebar">
-			<% if user_signed_in? %>
-    </div>
+	<div class="span2 bs-docs-sidebar">
+	</div>
 
+<% if user_signed_in? %>
 <div class="span6">
 	<% @hangouts.each do |hangout| %>
 		<div class="well">
