@@ -13,6 +13,7 @@ HarvardHangouts::Application.routes.draw do
   
   root :to => 'welcome#index'
   
+  # set up page forks properly
   match '/work' => 'welcome#work'
   match '/sessions' => 'welcome#sessions'
   match '/parties' => 'welcome#parties'
